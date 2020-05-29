@@ -3,5 +3,11 @@
   "version": "0.0.1",
   "main": "index.js",
   "author": "onigra <3280467rec@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.9.3"
+  }
 }
