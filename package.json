@@ -9,5 +9,8 @@
     "jest": "^26.0.1",
     "ts-jest": "^26.0.0",
     "typescript": "^3.9.3"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }
