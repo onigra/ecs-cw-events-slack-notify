@@ -13,7 +13,8 @@
     "typescript": "^3.9.3"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "tsc": "tsc"
   },
   "dependencies": {
     "@types/node": "^14.0.6"
