@@ -14,5 +14,8 @@
   },
   "scripts": {
     "test": "jest"
+  },
+  "dependencies": {
+    "@types/node": "^14.0.6"
   }
 }
