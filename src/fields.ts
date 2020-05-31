@@ -8,22 +8,17 @@ export function fields(event: any): Field[] {
   return [
     {
       title: "Cluster",
-      value: "cluster-1",
-      short: true,
-    },
-    {
-      title: "Service",
-      value: "service-1",
+      value: event.detail.clusterArn.match(/^arn:aws:ecs:.+\/(.+)$/i)[1],
       short: true,
     },
     {
       title: "Task Definition",
-      value: "10",
+      value: event.detail.taskDefinitionArn.match(/^arn:aws:ecs:.+\/(.+)$/i)[1],
       short: true,
     },
     {
       title: "Status",
-      value: "SUCCESS",
+      value: event.detail.lastStatus,
       short: true,
     },
   ];
