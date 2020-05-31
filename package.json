@@ -5,6 +5,8 @@
   "author": "onigra <3280467rec@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@slack/types": "^1.6.0",
+    "@slack/webhook": "^5.0.3",
     "@types/jest": "^25.2.3",
     "jest": "^26.0.1",
     "ts-jest": "^26.0.0",
