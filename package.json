@@ -6,8 +6,8 @@
   "license": "MIT",
   "devDependencies": {
     "@slack/types": "^1.6.0",
-    "@slack/webhook": "^5.0.3",
     "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.6",
     "jest": "^26.0.1",
     "ts-jest": "^26.0.0",
     "typescript": "^3.9.3"
@@ -17,6 +17,6 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "@types/node": "^14.0.6"
+    "@slack/webhook": "^5.0.3"
   }
 }
