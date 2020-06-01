@@ -21,6 +21,11 @@ export function fields(event: any): Field[] {
       short: true,
     },
     {
+      title: "Service",
+      value: event.detail.group.match(/^service:(.+)$/i)[1],
+      short: true,
+    },
+    {
       title: "Task Definition",
       value: event.detail.taskDefinitionArn.match(/^arn:aws:ecs:.+\/(.+)$/i)[1],
       short: true,
