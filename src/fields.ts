@@ -36,6 +36,11 @@ export function fields(event: any): Field[] {
       short: true,
     },
     {
+      title: "Task Id",
+      value: event.detail.taskArn.match(/^arn:aws:ecs:.+\/(.+)$/i)[1],
+      short: true,
+    },
+    {
       title: "Tasks",
       value: tasks,
       short: false,
