@@ -8,7 +8,7 @@ export function fields(event: any): Field[] {
   const tasks = event.detail.containers
     .map(
       (x: any) =>
-        `Status: ${x.lastStatus} Task: ${x.name} ImageTag: ${
+        `*Status:* ${x.lastStatus} *Task:* ${x.name} *ImageTag:* ${
           x.image.match(/^.+\/(.+)$/i)[1]
         }`
     )
