@@ -31,6 +31,11 @@ export function fields(event: any): Field[] {
       short: true,
     },
     {
+      title: "Deployment Status",
+      value: event.detail.lastStatus,
+      short: true,
+    },
+    {
       title: "Tasks",
       value: tasks,
       short: false,
