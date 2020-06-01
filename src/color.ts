@@ -1,4 +1,4 @@
-const normalStatus: string[] = ["PROVISIONING", "PENDING"];
+const normalStatus: string[] = ["PROVISIONING", "PENDING", "DEPROVISIONING"];
 const warningStatus: string[] = ["STOPPED"];
 
 export function color(event: any): string {
