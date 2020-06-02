@@ -1,50 +1,13 @@
+import { cluster } from "./parser/cluster";
+import { service } from "./parser/service";
+import { taskDef } from "./parser/taskDef";
+import { taskId } from "./parser/taskId";
+import { tasks } from "./parser/tasks";
+
 interface Field {
   title: string;
   value: string;
   short: boolean;
-}
-
-function cluster(clusterArn: string): string {
-  const matched = clusterArn.match(/^arn:aws:ecs:.+\/(.+)$/i);
-  if (matched === null) {
-    return "";
-  }
-  return matched[1];
-}
-
-function service(group: string): string {
-  const matched = group.match(/^service:(.+)$/i);
-  if (matched === null) {
-    return "";
-  }
-  return matched[1];
-}
-
-function taskDef(taskDefArn: string): string {
-  const matched = taskDefArn.match(/^arn:aws:ecs:.+\/(.+)$/i);
-  if (matched === null) {
-    return "";
-  }
-  return matched[1];
-}
-
-function taskId(taskArn: string): string {
-  const matched = taskArn.match(/^arn:aws:ecs:.+\/(.+)$/i);
-  if (matched === null) {
-    return "";
-  }
-  return matched[1];
-}
-
-function tasks(containers: any): string {
-  return containers
-    .map(
-      (x: any) =>
-        `*Status:* ${x.lastStatus} *Task:* ${x.name} *ImageTag:* ${
-          x.image.match(/^.+\/(.+)$/i)[1]
-        }`
-    )
-    .join("\n");
 }
 
 export function fields(event: any): Field[] {
