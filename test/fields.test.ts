@@ -1,5 +1,6 @@
 import { fields } from "../src/fields";
 
+import { fieldsBuilder } from "./helper/fieldsBuilder";
 import { running } from "./data/running";
 
 test("running event", async () => {
@@ -15,38 +16,14 @@ test("running event", async () => {
   ].join("\n");
 
   //and
-  const expected = [
-    {
-      title: "Cluster",
-      value: cluster,
-      short: true,
-    },
-    {
-      title: "Service",
-      value: service,
-      short: true,
-    },
-    {
-      title: "Task Definition",
-      value: taskDef,
-      short: true,
-    },
-    {
-      title: "Deployment Status",
-      value: deploymentStatus,
-      short: true,
-    },
-    {
-      title: "Task Id",
-      value: taskId,
-      short: false,
-    },
-    {
-      title: "Tasks",
-      value: tasks,
-      short: false,
-    },
-  ];
+  const expected = fieldsBuilder(
+    cluster,
+    service,
+    taskDef,
+    deploymentStatus,
+    taskId,
+    tasks
+  );
 
   // when
   const actual = fields(running);

@@ -4,7 +4,7 @@ import { taskDef } from "./parser/taskDef";
 import { taskId } from "./parser/taskId";
 import { tasks } from "./parser/tasks";
 
-interface Field {
+export interface Field {
   title: string;
   value: string;
   short: boolean;
