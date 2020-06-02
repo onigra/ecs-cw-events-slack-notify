@@ -1,6 +1,6 @@
 import { fields } from "../src/fields";
 
-import { fieldsBuilder } from "./helper/fieldsBuilder";
+import { fieldsBuilder } from "../src/builder/fields";
 import { running } from "./data/running";
 
 test("running event", async () => {

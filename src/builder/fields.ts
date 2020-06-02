@@ -1,4 +1,8 @@
-import { Field } from "../../src/fields";
+interface Field {
+  title: string;
+  value: string;
+  short: boolean;
+}
 
 export function fieldsBuilder(
   cluster: string,
