@@ -1,46 +1,36 @@
-interface Field {
-  title: string;
-  value: string;
-  short: boolean;
-}
+import { MessageElements } from "../types/messageElements";
+import { Field } from "../types/field";
 
-export function fieldsBuilder(
-  cluster: string,
-  service: string,
-  taskDef: string,
-  deploymentStatus: string,
-  taskId: string,
-  tasks: string
-): Field[] {
+export function fieldsBuilder(elements: MessageElements): Field[] {
   return [
     {
       title: "Cluster",
-      value: cluster,
+      value: elements.cluster,
       short: true,
     },
     {
       title: "Service",
-      value: service,
+      value: elements.service,
       short: true,
     },
     {
       title: "Task Definition",
-      value: taskDef,
+      value: elements.taskDef,
       short: true,
     },
     {
       title: "Deployment Status",
-      value: deploymentStatus,
+      value: elements.deploymentStatus,
       short: true,
     },
     {
       title: "Task Id",
-      value: taskId,
+      value: elements.taskId,
       short: false,
     },
     {
       title: "Tasks",
-      value: tasks,
+      value: elements.tasks,
       short: false,
     },
   ];
