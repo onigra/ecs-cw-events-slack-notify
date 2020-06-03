@@ -19,14 +19,14 @@ function urlBase(region: string): string {
 
 export function urlBuilder(items: UrlBuildElements): Urls {
   return {
-    clusterUrl: `${urlBase(items.region)}/${items.cluster}/services`,
-    serviceUrl: `${urlBase(items.region)}/${items.cluster}/services/${
+    clusterUrl: `${urlBase(items.region)}/clusters/${items.cluster}/services`,
+    serviceUrl: `${urlBase(items.region)}/clusters/${items.cluster}/services/${
       items.service
     }/details`,
     taskDefUrl: `${urlBase(
       items.region
     )}/taskDefinitions/${items.taskDef.replace(":", "/")}`,
-    taskUrl: `${urlBase(items.region)}/${items.cluster}/tasks/${
+    taskUrl: `${urlBase(items.region)}/clusters/${items.cluster}/tasks/${
       items.taskId
     }/details`,
   };
