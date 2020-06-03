@@ -23,11 +23,11 @@ function messageElements(event: any): MessageElements {
   const url = urlBuilder(elements);
 
   return {
-    cluster: `[${elements.cluster}](${url.clusterUrl})`,
-    service: `[${elements.service}](${url.serviceUrl})`,
-    taskDef: `[${elements.taskDef}](${url.taskDefUrl})`,
+    cluster: `<${url.clusterUrl}|${elements.cluster}>`,
+    service: `<${url.serviceUrl}|${elements.service}>`,
+    taskDef: `<${url.taskDefUrl}|${elements.taskDef}>`,
     deploymentStatus: event.detail.lastStatus,
-    taskId: `[${elements.taskId}](${url.taskUrl})`,
+    taskId: `<${url.taskUrl}|${elements.taskId}>`,
     tasks: tasks(event.detail.containers),
   };
 }
