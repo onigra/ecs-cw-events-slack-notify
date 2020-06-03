@@ -5,12 +5,19 @@
   "author": "onigra <3280467rec@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@slack/types": "^1.6.0",
     "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.6",
     "jest": "^26.0.1",
     "ts-jest": "^26.0.0",
     "typescript": "^3.9.3"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "tsc": "tsc",
+    "build": "tsc && cp ./package.json ./dist/package.json && cd dist && yarn install --prod && zip -r ../dist.zip ./*"
+  },
+  "dependencies": {
+    "@slack/webhook": "^5.0.3"
   }
 }
