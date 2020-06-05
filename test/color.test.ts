@@ -1,4 +1,4 @@
-import { color } from "../src/color";
+import { color } from "../src/blocks/color";
 
 import { running } from "./data/running";
 import { pending } from "./data/pending";

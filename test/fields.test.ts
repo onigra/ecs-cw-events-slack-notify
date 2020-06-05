@@ -1,6 +1,5 @@
-import { fields } from "../src/fields";
-import { fieldsBuilder } from "../src/builder/fields";
-import { MessageElements } from "../src/types/messageElements";
+import { fields } from "../src/blocks/fields";
+import { fieldsBuilder } from "../src/blocks/builder/fields";
 
 import { running } from "./data/running";
 
@@ -21,7 +20,7 @@ test("running event", async () => {
   ].join("\n");
 
   //and
-  const element: MessageElements = {
+  const materials = {
     cluster: cluster,
     service: service,
     taskDef: taskDef,
@@ -31,7 +30,7 @@ test("running event", async () => {
   };
 
   //and
-  const expected = fieldsBuilder(element);
+  const expected = fieldsBuilder(materials);
 
   // when
   const actual = fields(running);
