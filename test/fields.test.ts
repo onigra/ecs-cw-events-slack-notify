@@ -1,7 +1,8 @@
 import { fields } from "../src/blocks/fields";
 import { fieldsBuilder } from "../src/blocks/builder/fields";
+import { ecsTaskEvent } from "../src/event/ecsTask";
 
-import { running } from "./data/running";
+import { running as runningEvent } from "./data/running";
 
 test("running event", async () => {
   // setup
@@ -33,7 +34,8 @@ test("running event", async () => {
   const expected = fieldsBuilder(materials);
 
   // when
-  const actual = fields(running);
+  const event = ecsTaskEvent(runningEvent);
+  const actual = fields(event);
 
   // then
   expect(actual).toStrictEqual(expected);

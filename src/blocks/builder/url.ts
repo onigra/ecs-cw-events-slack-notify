@@ -1,4 +1,4 @@
-export interface UrlMaterials {
+interface UrlMaterials {
   region: string;
   cluster: string;
   service: string;
@@ -17,13 +17,13 @@ function urlBase(region: string): string {
   return `https://${region}.console.aws.amazon.com/ecs/home?region=${region}#`;
 }
 
-export function urlBuilder(items: UrlMaterials): Urls {
-  const base = urlBase(items.region);
+export function urlBuilder(event: UrlMaterials): Urls {
+  const base = urlBase(event.region);
 
   return {
-    clusterUrl: `${base}/clusters/${items.cluster}/services`,
-    serviceUrl: `${base}/clusters/${items.cluster}/services/${items.service}/details`,
-    taskDefUrl: `${base}/taskDefinitions/${items.taskDef.replace(":", "/")}`,
-    taskUrl: `${base}/clusters/${items.cluster}/tasks/${items.taskId}/details`,
+    clusterUrl: `${base}/clusters/${event.cluster}/services`,
+    serviceUrl: `${base}/clusters/${event.cluster}/services/${event.service}/details`,
+    taskDefUrl: `${base}/taskDefinitions/${event.taskDef.replace(":", "/")}`,
+    taskUrl: `${base}/clusters/${event.cluster}/tasks/${event.taskId}/details`,
   };
 }

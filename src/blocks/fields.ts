@@ -1,36 +1,21 @@
-import { cluster } from "./parser/cluster";
-import { service } from "./parser/service";
-import { taskDef } from "./parser/taskDef";
-import { taskId } from "./parser/taskId";
-import { tasks } from "./parser/tasks";
+import { EcsTaskEvent } from "../event/ecsTask";
 import { fieldsBuilder, FieldMaterials, Field } from "./builder/fields";
-import { urlBuilder, UrlMaterials } from "./builder/url";
+import { urlBuilder } from "./builder/url";
 
-function urlMaterials(event: any): UrlMaterials {
+function fieldMaterials(event: EcsTaskEvent): FieldMaterials {
+  const url = urlBuilder(event);
+
   return {
-    region: event.region,
-    cluster: cluster(event.detail.clusterArn),
-    service: service(event.detail.group),
-    taskDef: taskDef(event.detail.taskDefinitionArn),
-    taskId: taskId(event.detail.taskArn),
+    cluster: `<${url.clusterUrl}|${event.cluster}>`,
+    service: `<${url.serviceUrl}|${event.service}>`,
+    taskDef: `<${url.taskDefUrl}|${event.taskDef}>`,
+    deploymentStatus: event.status,
+    taskId: `<${url.taskUrl}|${event.taskId}>`,
+    tasks: event.tasks,
   };
 }
 
-function fieldMaterials(event: any): FieldMaterials {
-  const materials = urlMaterials(event);
-  const url = urlBuilder(materials);
-
-  return {
-    cluster: `<${url.clusterUrl}|${materials.cluster}>`,
-    service: `<${url.serviceUrl}|${materials.service}>`,
-    taskDef: `<${url.taskDefUrl}|${materials.taskDef}>`,
-    deploymentStatus: event.detail.lastStatus,
-    taskId: `<${url.taskUrl}|${materials.taskId}>`,
-    tasks: tasks(event.detail.containers),
-  };
-}
-
-export function fields(event: any): Field[] {
+export function fields(event: EcsTaskEvent): Field[] {
   const materials = fieldMaterials(event);
   return fieldsBuilder(materials);
 }

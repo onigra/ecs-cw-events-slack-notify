@@ -1,12 +1,12 @@
 const normalStatus: string[] = ["PROVISIONING", "PENDING", "DEPROVISIONING"];
 const warningStatus: string[] = ["STOPPED"];
 
-export function color(event: any): string {
-  if (normalStatus.includes(event.detail.lastStatus)) {
+export function color(status: string): string {
+  if (normalStatus.includes(status)) {
     return "#3498DB";
   }
 
-  if (warningStatus.includes(event.detail.lastStatus)) {
+  if (warningStatus.includes(status)) {
     return "warning";
   }
 
