@@ -1,4 +1,4 @@
-import { color } from "../src/blocks/color";
+import { color } from "../../src/blocks/color";
 
 describe.each`
   status              | expected

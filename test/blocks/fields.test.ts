@@ -1,8 +1,8 @@
-import { fields } from "../src/blocks/fields";
-import { fieldsBuilder } from "../src/blocks/builder/fields";
-import { ecsTaskEvent } from "../src/event/ecsTask";
+import { fields } from "../../src/blocks/fields";
+import { fieldsBuilder } from "../../src/blocks/builder/fields";
+import { ecsTaskEvent } from "../../src/event/ecsTask";
 
-import { running as runningEvent } from "./data/running";
+import { running as runningEvent } from "../data/running";
 
 test("running event", async () => {
   // setup
