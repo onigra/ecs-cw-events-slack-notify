@@ -2,7 +2,7 @@ import { cluster } from "./parser/cluster";
 import { service } from "./parser/service";
 import { taskDef } from "./parser/taskDef";
 import { taskId } from "./parser/taskId";
-import { tasks } from "./parser/tasks";
+import { tasks, ContainerEvent } from "./parser/tasks";
 
 export interface EcsTaskEvent {
   region: string;
@@ -11,7 +11,7 @@ export interface EcsTaskEvent {
   status: string;
   taskDef: string;
   taskId: string;
-  tasks: string;
+  tasks: ContainerEvent[];
 }
 
 export function ecsTaskEvent(event: any): EcsTaskEvent {

@@ -1,6 +1,7 @@
 import { EcsTaskEvent } from "../event/ecsTask";
 import { fieldsBuilder, FieldMaterials, Field } from "./builder/fields";
 import { urlBuilder } from "./builder/url";
+import { tasksBuilder } from "./builder/tasks";
 
 function fieldMaterials(event: EcsTaskEvent): FieldMaterials {
   const url = urlBuilder(event);
@@ -11,7 +12,7 @@ function fieldMaterials(event: EcsTaskEvent): FieldMaterials {
     taskDef: `<${url.taskDefUrl}|${event.taskDef}>`,
     deploymentStatus: event.status,
     taskId: `<${url.taskUrl}|${event.taskId}>`,
-    tasks: event.tasks,
+    tasks: tasksBuilder(event.tasks).join("\n"),
   };
 }
 

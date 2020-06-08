@@ -32,12 +32,21 @@ test("tasks()", () => {
 
   // and
   const expected = [
-    "*Status:* RUNNING *Task:* app *ImageTag:* test-image:test-tag",
-    "*Status:* RUNNING *Task:* sidecar *ImageTag:* sidecar:latest",
-  ].join("\n");
+    {
+      status: "RUNNING",
+      task: "app",
+      imageTag: "test-image:test-tag",
+    },
+    {
+      status: "RUNNING",
+      task: "sidecar",
+      imageTag: "sidecar:latest",
+    },
+  ];
 
   // when
   const actual = tasks(containers);
 
-  expect(actual).toBe(expected);
+  // then
+  expect(actual).toStrictEqual(expected);
 });
