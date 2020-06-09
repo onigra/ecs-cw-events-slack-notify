@@ -1,5 +1,5 @@
 import { IncomingWebhook } from "@slack/webhook";
-import { buildMessage } from "./messageBuilder";
+import { buildMessage } from "./message";
 
 const url = process.env.SLACK_WEBHOOK_URL;
 const webhook = new IncomingWebhook(url);

@@ -1,7 +1,19 @@
-import { MessageElements } from "../types/messageElements";
-import { Field } from "../types/field";
+export interface FieldMaterials {
+  cluster: string;
+  service: string;
+  taskDef: string;
+  deploymentStatus: string;
+  taskId: string;
+  tasks: string;
+}
 
-export function fieldsBuilder(elements: MessageElements): Field[] {
+export interface Field {
+  title: string;
+  value: string;
+  short: boolean;
+}
+
+export function fieldsBuilder(elements: FieldMaterials): Field[] {
   return [
     {
       title: "Cluster",
